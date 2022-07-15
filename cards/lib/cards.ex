@@ -1,4 +1,7 @@
 defmodule Cards do
+  @moduledoc """
+    This module provides methods for creating and handling a deck of cards.
+  """
   def hello do
     "Hello from Elixir!"
   end
