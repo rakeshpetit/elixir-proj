@@ -6,6 +6,15 @@ defmodule Cards do
     "Hello from Elixir!"
   end
 
+  @doc """
+    This method creates a deck of cards.
+
+    ## Examples
+      iex> deck = Cards.create_deck
+      iex> length deck
+      20
+  """
+
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
     suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
@@ -19,10 +28,29 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
+  @doc """
+    This method verifies if the deck of cards contains a specific card.
+
+    ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Ace of Spades")
+      true
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
 
+  @doc """
+    This method deals a card from the deck.
+
+    ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> { hand, deck } = Cards.deal(deck, 1)
+      iex> hand
+      ["Ace of Spades"]
+  """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
