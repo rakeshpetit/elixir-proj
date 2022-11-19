@@ -3,12 +3,11 @@ defmodule DiscussWeb.AuthController do
 
   alias DiscussWeb.User
 
-  def callback(conn, _params) do
-    IO.inspect(conn.assigns)
-    # redirect(conn, to: Routes.topic_path(conn, :index))
-    # user_params = %{token: auth.credentials.token, email: auth.info.email, provider: "github"}
-    # changeset = User.changeset(%User{}, user_params)
-    # signin(conn, changeset)
+  def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
+    user_params = %{token: auth.credentials.token, email: auth.info.email, provider: "github"}
+    changeset = User.changeset(%User{}, user_params)
+
+    signin(conn, changeset)
   end
 
   defp signin(conn, changeset) do
