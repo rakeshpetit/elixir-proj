@@ -12,6 +12,13 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
+    <nav class="light-blue">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">
+          Discussions
+        </a>
+        </div>
+    </nav>
     <%= @inner_content %>
   </body>
 </html>
